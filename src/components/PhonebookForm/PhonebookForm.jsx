@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import actions from '../../redux/actions';
+import actions from '../../redux/contacts/actions';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import {

@@ -1,7 +1,5 @@
-import { useDispatch, useSelector } from 'react-redux';
-import actions from '../../../redux/actions';
 import { FcPhoneAndroid } from 'react-icons/fc';
-import { getFilteredContacts } from '../../../redux/selectors';
+
 import {
   ListItem,
   ItemName,
@@ -9,20 +7,17 @@ import {
   DeleteButton,
 } from './ContactsItem.styled';
 
-export function ContactsItem() {
-  const dispatch = useDispatch();
-  const filteredContacts = useSelector(getFilteredContacts);
-
-  return filteredContacts.map(({ id, name, number }) => (
-    <ListItem key={id}>
+export function ContactsItem({ deleteContact, id, name, number }) {
+  return (
+    <ListItem>
       <ItemName>
         <FcPhoneAndroid size="20" />
         {name}:
       </ItemName>
       <ItemNumber>{number}</ItemNumber>
-      <DeleteButton id={id} onClick={() => dispatch(actions.delContact(id))}>
+      <DeleteButton id={id} onClick={deleteContact}>
         Delete
       </DeleteButton>
     </ListItem>
-  ));
+  );
 }
