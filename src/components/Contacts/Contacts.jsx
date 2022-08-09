@@ -14,7 +14,6 @@ export function Contacts() {
         <ContactsItem
           key={id}
           deleteContact={() => dispatch(actions.delContact(id))}
-          id={id}
           name={name}
           number={number}
         />
